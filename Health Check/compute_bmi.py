@@ -1,9 +1,7 @@
 import numpy as np
 import pandas as pd
-# import json as js
-dfNew = pd.DataFrame()
-df_ref = pd.read_excel("BMI_table.xlsx")
-df = pd.read_json("data.json")
+import json
+df = pd.read_json('data.json')
 
 value = 0
 bmi_category = None
@@ -15,9 +13,9 @@ def calculate_bmi_value( height, weight):
 
 def determine_bmi_category( height, weight):
     value1 = calculate_bmi_value(height, weight)
-    if value1 >= 40:
+    if value1 <= 18.4:
          bmi_category = "Underweight"
-    elif value1 >= 18.5 and value1 <= 24.9:
+    if value1 >= 18.5 and value1 <= 24.9:
          bmi_category = "Normal weight"
     elif value1 >= 25 and value1 <= 29.9:
          bmi_category = "Overweight"
@@ -32,7 +30,7 @@ def determine_bmi_category( height, weight):
 
 def determine_health_risk( height, weight):
     value1 = calculate_bmi_value(height, weight)
-    if value1 >= 40:
+    if value1 <= 18.4:
          health_risk = "Malnutrition risk"
     elif value1 >= 18.5 and value1 <= 24.9:
          health_risk = "Low risk"
