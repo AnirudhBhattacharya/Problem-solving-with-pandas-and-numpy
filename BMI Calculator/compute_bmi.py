@@ -61,10 +61,3 @@ df['Health Risk'] = np.array(list(health_risk_object))
 
 df_json = df.to_json("dataNew.json", orient='records')
 
-
-
-'''
-dfNew.to_json('dataNew.json')
-print(df1)
-'''
-
